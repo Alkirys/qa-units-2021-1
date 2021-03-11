@@ -1,8 +1,39 @@
-import React from 'react'
+import React from 'react';
+jest.mock('../utils/getDate');
+import {getDate} from '../utils/getDate';
+import {fakeOrders} from '../data/fakeOrders';
+import {shallow, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Order from './Order';
+
+configure({ adapter: new Adapter() });
+
+getDate.mockReturnValue('31 февраля, пн, 2021 год');
 
 describe('Order.js', () => {
-  it('some test', () => {
+  beforeEach(() => {
+    jest.resetModules();
+    getDate.mockReturnValue('31 февраля, пн, 2021 год');
+  });
 
+  it('all right', () => {
+    const wrapper = shallow(<Order order={fakeOrders[0]}/>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('getDate call', () => {
+    expect(getDate).toHaveBeenCalled()
+  });
+
+  it('no order', () => {
+    const wrapper = shallow(<Order />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('no shop, date in order', () => {
+    const order = {shop: undefined, date: undefined}
+    const wrapper = shallow(<Order order={order}/>);
+    expect(wrapper).toMatchSnapshot();
   });
 });
 
