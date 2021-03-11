@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Order.js getDate call 1`] = `""`;
-
-exports[`Order.js getDate call 2`] = `""`;
-
-exports[`Order.js some test 1`] = `
+exports[`Order.js all right 1`] = `
 <div
   className="Order"
 >
@@ -46,3 +42,7 @@ exports[`Order.js some test 1`] = `
   </div>
 </div>
 `;
+
+exports[`Order.js no order 1`] = `""`;
+
+exports[`Order.js no shop, date in order 1`] = `""`;
