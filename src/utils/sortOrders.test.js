@@ -125,8 +125,8 @@ describe('sortByDate function', () => {
 	});
 });
 
-describe('COUNT sort', () => {
-	it('not same date', () => {
+describe('getSortFunction function', () => {
+	it('COUNT sort', () => {
 		const result = getSortFunction(sortTypes.COUNT);
 
 		expect(result).toBe(sortByItemCount);
@@ -145,7 +145,15 @@ describe('sortOrders function', () => {
 
 		const result = sortOrders(undefined, sortFunc);
 
-		expect(sortFunc.mock.calls.length).toBe(0);
+		expect(sortFunc).toBeCalledTimes(0);
+	});
+
+	it('orders undefined', () => {
+		const sortFunc = jest.fn();
+
+		const result = sortOrders([1, 2], undefined);
+
+		expect(sortFunc).toBeCalledTimes(0);
 	});
 
 	it('all right', () => {

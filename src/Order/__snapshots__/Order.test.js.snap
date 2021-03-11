@@ -42,3 +42,27 @@ exports[`Order.js all right 1`] = `
   </div>
 </div>
 `;
+
+exports[`Order.js items is empty 1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      Alihandro Express
+    </span>
+    <span
+      id="date"
+    >
+      31 февраля, пн, 2021 год
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  />
+</div>
+`;

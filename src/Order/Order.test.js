@@ -8,8 +8,6 @@ import Order from './Order';
 
 configure({ adapter: new Adapter() });
 
-getDate.mockReturnValue('31 февраля, пн, 2021 год');
-
 describe('Order.js', () => {
   beforeEach(() => {
     jest.resetModules();
@@ -21,11 +19,6 @@ describe('Order.js', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('getDate call', () => {
-    const wrapper = shallow(<Order order={fakeOrders[0]}/>);
-    expect(getDate).toHaveBeenCalled();
-  });
-
   it('no order', () => {
     const wrapper = shallow(<Order />);
     expect(wrapper.getElement()).toBeNull();
@@ -34,6 +27,13 @@ describe('Order.js', () => {
   it('order is empty', () => {
     const wrapper = shallow(<Order order={{}}/>);
     expect(wrapper.getElement()).toBeNull();
+  });
+
+  it('items is empty', () => {
+    const order = Object.assign({}, fakeOrders[0]);
+    order.items = undefined;
+    const wrapper = shallow(<Order order={order}/>);
+    expect(wrapper).toMatchSnapshot();
   });
 });
 
