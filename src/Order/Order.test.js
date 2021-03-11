@@ -22,17 +22,18 @@ describe('Order.js', () => {
   });
 
   it('getDate call', () => {
-    expect(getDate).toHaveBeenCalled()
+    const wrapper = shallow(<Order order={fakeOrders[0]}/>);
+    expect(getDate).toHaveBeenCalled();
   });
 
   it('no order', () => {
     const wrapper = shallow(<Order />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.getElement()).toBeNull();
   });
 
   it('order is empty', () => {
     const wrapper = shallow(<Order order={{}}/>);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.getElement()).toBeNull();
   });
 });
 

@@ -42,7 +42,3 @@ exports[`Order.js all right 1`] = `
   </div>
 </div>
 `;
-
-exports[`Order.js no order 1`] = `""`;
-
-exports[`Order.js order is empty 1`] = `""`;
