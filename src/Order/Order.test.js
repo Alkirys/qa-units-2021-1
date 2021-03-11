@@ -30,9 +30,8 @@ describe('Order.js', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('no shop, date in order', () => {
-    const order = {shop: undefined, date: undefined}
-    const wrapper = shallow(<Order order={order}/>);
+  it('order is empty', () => {
+    const wrapper = shallow(<Order order={{}}/>);
     expect(wrapper).toMatchSnapshot();
   });
 });

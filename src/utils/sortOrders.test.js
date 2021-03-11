@@ -10,17 +10,17 @@ import {
 describe('sortByItemCount function', () => {
 	it('orders are null', () => {
 		const result = sortByItemCount(null, null);
-		expect(result).toEqual(0);
+		expect(result).toBe(0);
 	});
 
 	it('orders are empty', () => {
 		const result = sortByItemCount({}, {});
-		expect(result).toEqual(0);
+		expect(result).toBe(0);
 	});
 
 	it('orders are numbers', () => {
 		const result = sortByItemCount(1, 1);
-		expect(result).toEqual(0);
+		expect(result).toBe(0);
 	});
 
 	it('same items count', () => {
@@ -69,17 +69,17 @@ describe('sortByItemCount function', () => {
 describe('sortByDate function', () => {
 	it('dates are null', () => {
 		const result = sortByDate(null, null);
-		expect(result).toEqual(0);
+		expect(result).toBe(0);
 	});
 
 	it('dates are numbers', () => {
 		const result = sortByDate(1, 1);
-		expect(result).toEqual(0);
+		expect(result).toBe(0);
 	});
 
 	it('dates are empty', () => {
 		const result = sortByDate({}, {});
-		expect(result).toEqual(0);
+		expect(result).toBe(0);
 	});
 
 	it('same date', () => {
@@ -153,6 +153,6 @@ describe('sortOrders function', () => {
 
 		const result = sortOrders([1, 2], sortFunc);
 
-		expect(sortFunc.mock.calls.length).toBe(1);
+		expect(sortFunc).toBeCalledTimes(1);
 	});
 });
