@@ -10,7 +10,6 @@ configure({ adapter: new Adapter() });
 
 describe('Order.js', () => {
   beforeEach(() => {
-    jest.resetModules();
     getDate.mockReturnValue('31 февраля, пн, 2021 год');
   });
 
