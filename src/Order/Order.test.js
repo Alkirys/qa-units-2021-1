@@ -14,6 +14,10 @@ describe('Order.js', () => {
     getDate.mockReturnValue('31 февраля, пн, 2021 год');
   });
 
+  afterAll(() => {
+    jest.resetModules();
+  })
+
   it('all right', () => {
     const wrapper = shallow(<Order order={fakeOrders[0]}/>);
     expect(wrapper).toMatchSnapshot();
